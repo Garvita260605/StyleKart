@@ -1,0 +1,602 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  
+  <title>StyleKart — Trendy Online Fashion | Shop Women's, Men's & Accessories</title>
+  <meta name="description" content="StyleKart: Shop the latest trendy fashion collections for Men, Women & Accessories. Inspired by Myntra — curated styles, easy shopping, speedy delivery, and great deals.">
+  <meta name="keywords" content="online clothing store, fashion, trendy clothes, StyleKart, women's fashion, men's fashion, accessories, footwear, deals, style guide">
+  <meta name="author" content="StyleKart Team">
+
+  <meta property="og:title" content="StyleKart — Trendy Online Fashion">
+  <meta property="og:description" content="Shop the latest fashion collections — curated and styled for you. Up to 60% off!">
+  <meta property="og:image" content="assets/og-image.jpg"> 
+  <meta property="og:type" content="website">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="StyleKart — Trendy Online Fashion">
+  <meta name="twitter:description" content="Shop the latest fashion collections — curated and styled for you.">
+
+  <link rel="icon" href="data:;base64,iVBORw0KGgo=">
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  
+  <style>
+    /* --- Basic responsive styling inspired by fashion e-commerce --- */
+    :root{
+      --accent:#ff3b6b; /* energetic fashion pink */
+      --dark:#111827;
+      --muted:#6b7280;
+      --card:#ffffff;
+      --light-bg: #f7f7fb;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+    }
+    *{box-sizing:border-box}
+    body{margin:0;background:var(--light-bg);color:var(--dark);}
+    
+    /* Header & Navigation */
+    header{background:linear-gradient(90deg, #fff 0%, #fff 60%, rgba(255,59,107,0.06) 100%);padding:18px 24px;position:sticky;top:0;z-index:100;border-bottom:1px solid #eee}
+    .nav{display:flex;align-items:center;justify-content:space-between;max-width:1200px;margin:0 auto}
+    .logo{display:flex;align-items:center;gap:8px;font-weight:700}
+    .logo .dot{width:34px;height:34px;background:var(--accent);border-radius:8px;display:inline-block}
+    nav a{margin:0 12px;color:var(--dark);text-decoration:none;font-weight:600;transition:color 0.2s}
+    nav a:hover{color:var(--accent)}
+    .cta{background:var(--accent);color:white;padding:10px 14px;border-radius:10px;text-decoration:none;transition:opacity 0.2s}
+    .cta:hover{opacity:0.9}
+
+    .container{max-width:1200px;margin:28px auto;padding:0 16px}
+    
+    /* Hero Section */
+    .hero{display:grid;grid-template-columns:1fr 480px;gap:24px;align-items:center}
+    .hero-card{background:linear-gradient(180deg, rgba(255,59,107,0.06), rgba(255,255,255,0));padding:32px;border-radius:14px;box-shadow:0 8px 25px rgba(17,24,39,0.05)}
+    h1{font-size:38px;margin:0 0 16px;line-height:1.2}
+    h2{font-size:28px;margin:36px 0 10px;}
+    p.lead{color:var(--muted);margin:0 0 24px;font-size:18px}
+    .hero img{width:100%;height:320px;object-fit:cover;border-radius:12px}
+
+    /* Product Grid & Cards */
+    .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:20px;margin-top:20px}
+    .card{background:var(--card);border-radius:12px;padding:15px;box-shadow:0 6px 18px rgba(17,24,39,0.04);transition:transform 0.2s, box-shadow 0.2s}
+    .card:hover{transform:translateY(-3px);box-shadow:0 12px 25px rgba(17,24,39,0.1)}
+    .card img{width:100%;height:250px;object-fit:cover;border-radius:8px}
+    .price{font-weight:700;color:var(--accent);font-size:18px}
+    .original-price{text-decoration:line-through;color:var(--muted);font-size:14px;margin-left:8px}
+    .btn{display:inline-block;padding:8px 14px;border-radius:8px;background:var(--accent);color:#fff;text-decoration:none;border:none;cursor:pointer;transition:background 0.2s}
+    .btn:hover{background:#e03560}
+
+    /* Footer */
+    footer{padding:32px 16px;background:#fff;margin-top:40px;border-top:1px solid #eee}
+    .footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:30px;max-width:1200px;margin:0 auto}
+    .footer-grid h4{margin-top:0;font-size:16px}
+    .footer-grid a{display:block;color:var(--muted);text-decoration:none;margin-bottom:6px;font-size:14px}
+    .footer-bottom{border-top:1px solid #eee;padding-top:15px;margin-top:20px;text-align:center;font-size:13px;color:var(--muted);}
+
+    /* Utility Styles */
+    .muted{color:var(--muted);font-size:14px}
+    .chip{display:inline-block;padding:7px 12px;background:#fff;border-radius:999px;border:1px solid #eee;margin:5px 4px 0 0;font-size:14px;font-weight:500}
+    .blog-form textarea{width:100%;height:100px;padding:10px;border-radius:8px;border:1px solid #e6e6f0}
+    .meta-output{background:#fff;padding:15px;border-radius:10px;border:1px dashed #eee;min-height:100px}
+
+    /* Floating Social Block (Bottom Left) */
+    .social-float {
+        position: fixed;
+        bottom: 20px;
+        left: 20px; 
+        z-index: 90;
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+        background: #fff;
+        padding: 10px;
+        border-radius: 12px;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+    .social-float a {
+        color: var(--dark);
+        font-size: 20px;
+        transition: color 0.2s;
+    }
+    .social-float a:hover {
+        color: var(--accent);
+    }
+
+    /* Chatbot Container (Bottom Right) */
+    .chatbot-container {
+        position: fixed;
+        bottom: 20px;
+        right: 20px; 
+        z-index: 90;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end; 
+    }
+    
+    /* Chatbot Button */
+    #chatbot-btn {
+        width: 50px;
+        height: 50px;
+        background: var(--accent);
+        color: white;
+        border: none;
+        border-radius: 50%;
+        cursor: pointer;
+        font-size: 22px;
+        box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        transition: transform 0.2s;
+    }
+    #chatbot-btn:hover {
+        transform: scale(1.05);
+    }
+    
+    /* Chatbot Popup */
+    #chatbot-popup {
+        position: absolute;
+        bottom: 70px; 
+        right: 0; 
+        width: 300px;
+        height: 400px;
+        background: #fff;
+        border-radius: 15px;
+        box-shadow: 0 8px 30px rgba(0,0,0,0.2);
+        display: none;
+        flex-direction: column;
+        overflow: hidden;
+    }
+    #chatbot-popup.open {
+        display: flex;
+    }
+    #chat-header {
+        background: var(--dark);
+        color: white;
+        padding: 12px;
+        text-align: center;
+        font-weight: 600;
+        font-size: 16px;
+    }
+    #chat-messages {
+        flex-grow: 1;
+        padding: 15px;
+        overflow-y: auto;
+        background: var(--light-bg);
+    }
+    .chat-message {
+        padding: 8px 12px;
+        border-radius: 15px;
+        margin-bottom: 10px;
+        max-width: 80%;
+    }
+    .user-msg {
+        background: #e0f7fa; 
+        align-self: flex-end;
+        margin-left: auto;
+    }
+    .bot-msg {
+        background: #fff;
+        border: 1px solid #eee;
+        align-self: flex-start;
+    }
+    #chat-input-area {
+        display: flex;
+        padding: 10px;
+        border-top: 1px solid #eee;
+    }
+    #chat-input {
+        flex-grow: 1;
+        padding: 8px;
+        border: 1px solid #ccc;
+        border-radius: 20px;
+        margin-right: 8px;
+    }
+    #send-btn {
+        background: var(--accent);
+        color: white;
+        border: none;
+        border-radius: 50%;
+        width: 35px;
+        height: 35px;
+        cursor: pointer;
+    }
+    
+    /* Responsive adjustments */
+    @media (max-width: 1024px) {
+        .hero { grid-template-columns: 1fr; gap: 18px; }
+        .hero-card { order: 2; }
+        .hero > div:nth-child(2) { order: 1; }
+        .footer-grid { grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 768px) {
+        nav { display: none; } 
+        .nav { justify-content: center; }
+        h1 { font-size: 30px; }
+        .grid { grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); }
+        .social-float { left: 10px; }
+        .chatbot-container { right: 10px; }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="nav">
+    <div class="logo">
+      <span class="dot" aria-hidden></span>
+      <div>
+        <div style="font-size:16px;">StyleKart</div>
+        <small class="muted">Inspired by Myntra</small>
+      </div>
+    </div>
+    <nav>
+      <a href="#home">Home</a>
+      <a href="#shop">Shop</a>
+      <a href="#deals">Deals</a>
+      <a href="#blog">Style Guide</a>
+      <a href="#about">About</a>
+      <a href="#contact">Contact</a>
+      <a class="cta" href="#shop">Shop Now</a>
+    </nav>
+  </div>
+</header>
+
+<main class="container" id="home">
+  <section class="hero">
+    <div class="hero-card">
+      <h1>Shop the latest trends — curated just for you</h1>
+      <p class="lead">Explore **seasonal collections**, exclusive drops, and hand-picked styles for every mood. Get **Free delivery over ₹799** and easy returns.</p>
+      <div style="display:flex;gap:15px;align-items:center">
+        <a class="btn" href="#shop">Explore Collections</a>
+        <a class="muted" href="#blog" style="font-weight:600">Read the Style Guide →</a>
+      </div>
+
+      <div style="margin-top:30px">
+        <strong>Shop By Top Categories:</strong>
+        <div style="margin-top:10px">
+          <span class="chip">Women's Ethnic</span>
+          <span class="chip">Men's Casuals</span>
+          <span class="chip">Formal Wear</span>
+          <span class="chip">Watches & Bags</span>
+          <span class="chip">Footwear</span>
+        </div>
+      </div>
+    </div>
+
+    <div style="padding:4px;border-radius:12px;display:flex;flex-direction:column;gap:10px">
+      <img src="https://images.unsplash.com/photo-1541099649105-f69ad21f3246?ixlib=rb-4.0.3&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=800&h=600&fit=crop" alt="Fashion model in trendy apparel" style="width:100%;height:320px;object-fit:cover;border-radius:12px">
+      <div class="card muted" style="padding:15px;font-size:14px;text-align:center;">**New Season Launch:** Up to **60% OFF** on selected styles for a limited time!</div>
+    </div>
+  </section>
+  
+  <section id="deals" style="margin-top:40px">
+    <h2>🔥 Today's Best Deals</h2>
+    <p class="muted">Don't miss out! Limited stock and time.</p>
+    <div class="grid" id="dealGrid">
+      </div>
+  </section>
+
+  <section id="shop" style="margin-top:40px">
+    <h2>Featured Products</h2>
+    <p class="muted">Hand-picked styles from our latest catalogue.</p>
+    <div class="grid" id="productGrid">
+      </div>
+  </section>
+
+  <section id="blog" style="margin-top:40px">
+    <h2>Style Tips & Trends Blog</h2>
+    <p class="muted">Stay ahead of the fashion curve with our expert advice.</p>
+
+    <div style="display:grid;grid-template-columns:1fr 350px;gap:20px;margin-top:15px">
+      <div>
+        <article class="card" style="padding:20px">
+          <h3>The Essential Guide to a Minimalist Wardrobe</h3>
+          <p class="muted">Learn how to build a compact guide to timeless pieces that make dressing easy and sustainable.</p>
+          <div style="margin-top:15px">
+             <p>A capsule wardrobe is key to minimal fashion. Focus on high-quality, versatile pieces like a perfect white tee, dark-wash jeans, and a trench coat. These foundational items can be mixed and matched effortlessly, saving you time and money. Investing in timeless pieces ensures your style remains chic regardless of fast-fashion trends.</p>
+             <a href="#" style="color:var(--accent);text-decoration:none;font-weight:600;display:block;margin-top:10px;">Read Full Article →</a>
+          </div>
+        </article>
+        
+        <article class="card" style="padding:20px;margin-top:20px">
+          <h3>Top 5 Trending Footwear Styles for the Season</h3>
+          <p class="muted">From chunky sneakers to elegant loafers—our must-have shoe list.</p>
+          <a href="#" style="color:var(--accent);text-decoration:none;font-weight:600;display:block;margin-top:10px;">Read Full Article →</a>
+        </article>
+      </div>
+
+      <aside class="card">
+        <h4>AI Content Optimizer 💡</h4>
+        <p class="muted">Simulate SEO improvement: Paste a blog paragraph to get suggested meta details.</p>
+        <div class="blog-form" style="margin-top:10px;">
+          <textarea id="blogInput" placeholder="Paste a paragraph from your blog post for analysis..."></textarea>
+          <div style="margin-top:10px;display:flex;gap:8px">
+            <button class="btn" onclick="aiOptimize()">AI Optimize</button>
+            <button class="btn" onclick="clearAI()" style="background:#6b7280">Clear</button>
+          </div>
+          <div style="margin-top:15px" id="aiOutput" class="meta-output" aria-live="polite">No analysis yet.</div>
+        </div>
+      </aside>
+    </div>
+  </section>
+
+  <section id="about" style="margin-top:40px;text-align:center;">
+    <h2>Our Commitment to Style</h2>
+    <p class="lead">We believe fashion should be accessible, high-quality, and reflective of your unique personality.</p>
+    <div style="display:flex;justify-content:center;gap:30px;margin-top:20px;">
+        <div class="card" style="flex:1;max-width:300px;">
+            <i class="fas fa-truck" style="font-size:24px;color:var(--accent);margin-bottom:10px;"></i>
+            <h4>Fast & Free Delivery</h4>
+            <p class="muted">Speedy shipping on all orders above ₹799.</p>
+        </div>
+        <div class="card" style="flex:1;max-width:300px;">
+            <i class="fas fa-undo" style="font-size:24px;color:var(--accent);margin-bottom:10px;"></i>
+            <h4>Easy Returns</h4>
+            <p class="muted">30-day no-hassle return policy for peace of mind.</p>
+        </div>
+        <div class="card" style="flex:1;max-width:300px;">
+            <i class="fas fa-tag" style="font-size:24px;color:var(--accent);margin-bottom:10px;"></i>
+            <h4>Best Prices</h4>
+            <p class="muted">Curated products with the best value guarantee.</p>
+        </div>
+    </div>
+  </section>
+
+  <section id="contact" style="margin-top:40px">
+    <h2>Get in Touch</h2>
+    <div style="display:flex;gap:30px;align-items:flex-start">
+      <form class="card" style="flex:2;padding:25px;" onsubmit="event.preventDefault();alert('Thank you! Your message is sent (Demo form). We will reply to your query soon.')">
+        <label class="muted" style="font-weight:600">Name</label>
+        <input required placeholder="Your name" style="width:100%;padding:10px;border-radius:8px;border:1px solid #eee;margin-top:6px;margin-bottom:15px;">
+        <label class="muted" style="font-weight:600;display:block">Email</label>
+        <input required type="email" placeholder="you@example.com" style="width:100%;padding:10px;border-radius:8px;border:1px solid #eee;margin-top:6px;margin-bottom:15px;">
+        <label class="muted" style="font-weight:600;display:block">Message</label>
+        <textarea required style="width:100%;padding:10px;border-radius:8px;border:1px solid #eee;margin-top:6px;height:120px"></textarea>
+        <div style="margin-top:15px"><button class="btn">Send Message</button></div>
+      </form>
+
+      <div style="flex:1;" class="card" style="padding:25px;">
+        <h4>Our Store Location (Head Office)</h4>
+        <p class="muted">StyleKart, 123 Fashion Street, Cyber Hub, Gurugram, India - 122002</p>
+        <p><strong>Email:</strong> support@stylekart.in</p>
+        <p style="margin-bottom:0"><strong>Phone:</strong> +91 98765 43210</p>
+        
+        <h4 style="margin-top:20px;">Connect With Us</h4>
+        <div class="socials" style="margin-top:12px;display:flex;gap:15px">
+          <a href="https://www.instagram.com/" target="_blank" rel="noopener" aria-label="Instagram"><i class="fab fa-instagram fa-lg"></i></a>
+          <a href="https://twitter.com/" target="_blank" rel="noopener" aria-label="X (Twitter)"><i class="fab fa-twitter fa-lg"></i></a>
+          <a href="https://www.facebook.com/" target="_blank" rel="noopener" aria-label="Facebook"><i class="fab fa-facebook-f fa-lg"></i></a>
+          <a href="https://www.pinterest.com/" target="_blank" rel="noopener" aria-label="Pinterest"><i class="fab fa-pinterest fa-lg"></i></a>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="footer-grid">
+    <div>
+      <strong>StyleKart</strong>
+      <p class="muted">The ultimate destination for modern, affordable, and trend-setting fashion. Shop with confidence.</p>
+      <p style="font-size:12px;margin-top:15px">Payment Methods:</p>
+      <div style="font-size:24px;color:#333;display:flex;gap:10px;">
+          <i class="fab fa-cc-visa"></i>
+          <i class="fab fa-cc-mastercard"></i>
+          <i class="fab fa-cc-amex"></i>
+          <i class="fab fa-google-pay"></i>
+      </div>
+    </div>
+    
+    <div>
+      <h4>Quick Links</h4>
+      <a href="#home">Home</a>
+      <a href="#shop">New Arrivals</a>
+      <a href="#deals">Sale</a>
+      <a href="#about">About Us</a>
+    </div>
+    
+    <div>
+      <h4>Customer Service</h4>
+      <a href="#">Track Order</a>
+      <a href="#">Returns Policy</a>
+      <a href="#">Shipping Info</a>
+      <a href="#contact">Contact Support</a>
+    </div>
+    
+    <div>
+      <h4>Legal</h4>
+      <a href="#">Privacy Policy</a>
+      <a href="#">Terms & Conditions</a>
+      <a href="#">Sitemap</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    &copy; 2025 StyleKart. All rights reserved. | StyleKart is a concept project inspired by Myntra.
+  </div>
+</footer>
+
+<div class="social-float">
+    <a href="https://wa.me/" target="_blank" rel="noopener" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+    <a href="https://www.instagram.com/" target="_blank" rel="noopener" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+    <a href="https://www.facebook.com/" target="_blank" rel="noopener" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+    <a href="https://www.linkedin.com/" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+    <a href="https://twitter.com/" target="_blank" rel="noopener" aria-label="X (Twitter)"><i class="fab fa-twitter"></i></a>
+</div>
+
+<div class="chatbot-container">
+    <div id="chatbot-popup" class="card">
+        <div id="chat-header">StyleKart Assistant</div>
+        <div id="chat-messages">
+            <div class="chat-message bot-msg">Hi! I'm your StyleKart Assistant. How can I help you today? (e.g., 'shipping', 'returns', 'deals')</div>
+        </div>
+        <div id="chat-input-area">
+            <input type="text" id="chat-input" placeholder="Type a message..." onkeypress="if(event.keyCode==13) sendMessage()">
+            <button id="send-btn" onclick="sendMessage()"><i class="fas fa-paper-plane"></i></button>
+        </div>
+    </div>
+    
+    <button id="chatbot-btn" onclick="toggleChatbot()" aria-label="Open Chatbot"><i class="fas fa-comment-dots"></i></button>
+</div>
+
+<script>
+  /* ===== Demo Product Data (UPDATED with more unique images) ===== */
+  const allProducts = [
+    // Women's Wear
+    {id:1,name:'Floral Midi Dress',price:1499,oldPrice:1999,img:'https://images.unsplash.com/photo-1520975913608-4a9a9c4ea1c6?ixlib=rb-4.0.3&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=800&h=600&fit=crop',alt:'floral midi dress on model',category:'Women',isDeal:false},
+    {id:6,name:'Women\'s Kurta Set',price:1899,oldPrice:2999,img:'https://images.unsplash.com/photo-1627477543209-66c813f28325?ixlib=rb-4.0.3&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=800&h=600&fit=crop',alt:'ethnic kurta set',category:'Women',isDeal:true},
+    {id:9,name:'High-Waist Jeans',price:1599,oldPrice:2199,img:'https://images.unsplash.com/photo-1565108604724-4f9e1e70404c?ixlib=rb-4.0.3&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=800&h=600&fit=crop',alt:'model wearing high-waist jeans',category:'Women',isDeal:false},
+    {id:10,name:'Summer Jumpsuit',price:999,oldPrice:1399,img:'https://images.unsplash.com/photo-1594633312681-425c0499648e?ixlib=rb-4.0.3&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=800&h=600&fit=crop',alt:'yellow summer jumpsuit',category:'Women',isDeal:true},
+
+    // Men's Wear
+    {id:2,name:'Casual Hoodie',price:899,oldPrice:1299,img:'https://images.unsplash.com/photo-1520975913607-abc?ixlib=rb-4.0.3&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=800&h=600&fit=crop',alt:'casual hoodie full sleeve',category:'Men',isDeal:true},
+    {id:4,name:'Denim Jacket',price:2299,oldPrice:3499,img:'https://images.unsplash.com/photo-1551631525-e65935f8e5cc?ixlib=rb-4.0.3&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=800&h=600&fit=crop',alt:'denim jacket hung',category:'Men',isDeal:true},
+    {id:7,name:'Slim Fit Trousers',price:1299,oldPrice:1899,img:'https://images.unsplash.com/photo-1524675558113-1f201e9d1e2e?ixlib=rb-4.0.3&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=800&h=600&fit=crop',alt:'slim fit trousers',category:'Men',isDeal:false},
+    {id:11,name:'Printed T-Shirt',price:499,oldPrice:699,img:'https://images.unsplash.com/photo-1577909395152-7ed6c9b3a37b?ixlib=rb-4.0.3&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=800&h=600&fit=crop',alt:'men\'s printed t-shirt',category:'Men',isDeal:false},
+
+    // Accessories & Footwear
+    {id:3,name:'Leather Sandals',price:1199,oldPrice:1599,img:'https://images.unsplash.com/photo-1594956324200-a54b38d3840b?ixlib=rb-4.0.3&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=800&h=600&fit=crop',alt:'leather sandals on floor',category:'Footwear',isDeal:false},
+    {id:5,name:'Crossbody Bag',price:799,oldPrice:999,img:'https://images.unsplash.com/photo-1574765796030-97734a36f01c?ixlib=rb-4.0.3&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=800&h=600&fit=crop',alt:'crossbody bag brown',category:'Accessories',isDeal:false},
+    {id:8,name:'Statement Necklace',price:599,oldPrice:799,img:'https://images.unsplash.com/photo-1621257406981-d2222a07c124?ixlib=rb-4.0.3&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=800&h=600&fit=crop',alt:'statement gold necklace',category:'Accessories',isDeal:false},
+    {id:12,name:'White Sneakers',price:1999,oldPrice:2799,img:'https://images.unsplash.com/photo-1558239062-b43e1208a0d9?ixlib=rb-4.0.3&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=800&h=600&fit=crop',alt:'clean white sneakers',category:'Footwear',isDeal:true},
+  ];
+  
+  const formatter = new Intl.NumberFormat('en-IN', {style: 'currency', currency: 'INR', minimumFractionDigits: 0});
+
+  function createProductCard(p) {
+    const el = document.createElement('div'); el.className='card';
+    const priceText = p.oldPrice ? `<span class="price">${formatter.format(p.price)}</span><span class="original-price">${formatter.format(p.oldPrice)}</span>` : `<span class="price">${formatter.format(p.price)}</span>`;
+    el.innerHTML = `
+      <img src="${p.img}" alt="${p.alt}">
+      <div style="padding-top:10px">
+        <div style="font-weight:600;font-size:16px">${p.name}</div>
+        <div class="muted" style="margin-top:4px">${p.category}</div>
+        <div style="margin-top:12px;display:flex;justify-content:space-between;align-items:center">
+          <div>${priceText}</div>
+          <a class="btn" href="#">Add to Cart</a>
+        </div>
+      </div>
+    `;
+    return el;
+  }
+  
+  // Populate the main product grid
+  const productGrid = document.getElementById('productGrid');
+  allProducts.filter(p => !p.isDeal).forEach(p => productGrid.appendChild(createProductCard(p)));
+  
+  // Populate the deals grid
+  const dealGrid = document.getElementById('dealGrid');
+  allProducts.filter(p => p.isDeal).forEach(p => dealGrid.appendChild(createProductCard(p)));
+
+
+  /* ======= AI-simulated keyword extractor & meta generator (as before) ======= */  
+  function aiOptimize(){    
+    const text = document.getElementById('blogInput').value.trim();    
+    const out = document.getElementById('aiOutput');    
+    if(!text){ out.innerHTML='<div class="chat-message bot-msg">Please paste a blog paragraph first.</div>'; return; }
+
+    const stopwords = new Set(['the','and','a','to','of','in','for','is','with','on','this','that','it','be','are','as','by','our','your','can','will','you','make','get']);    
+    const words = text.toLowerCase().replace(/[^a-z0-9\s]/g,'').split(/\s+/);    
+    const freq = {}; words.forEach(w=>{ if(w && !stopwords.has(w) && w.length>2){ freq[w]=(freq[w]||0)+1; }});    
+    const keys = Object.keys(freq).sort((a,b)=>freq[b]-freq[a]).slice(0,6);
+
+    const sugTitle = keys.slice(0,3).map(w=>w.replace(/\b\w/g,c=>c.toUpperCase())).join(' ') + ' — StyleKart';    
+    const meta = text.split(/[.!?]/).slice(0,2).join('. ').slice(0,140);
+
+    out.innerHTML = `      
+      <strong>Suggested Title (H1/Title Tag)</strong>      
+      <div style="margin:6px 0 10px; font-style:italic;">${sugTitle}</div>      
+      <strong>Meta Description (suggested)</strong>      
+      <div style="margin:6px 0 10px; font-style:italic;">${meta}...</div>      
+      <strong>Suggested Keywords (priority)</strong>      
+      <div style="margin-top:8px">${keys.map(k=>`<span class='chip'>${k}</span>`).join(' ')}</div>      
+      <div style='margin-top:10px' class='muted'>Tip: Use top 3 keywords in title and first paragraph for SEO; add remaining as LSI keywords across the post.</div>    
+    `;  
+  }  
+  function clearAI(){document.getElementById('blogInput').value='';document.getElementById('aiOutput').innerText='No analysis yet.'}
+
+  /* ======= Chatbot Logic (Same as previous version) ======= */
+  function toggleChatbot() {
+    const popup = document.getElementById('chatbot-popup');
+    popup.classList.toggle('open');
+    if (popup.classList.contains('open')) {
+        document.getElementById('chat-input').focus();
+    }
+  }
+
+  function sendMessage() {
+    const input = document.getElementById('chat-input');
+    const message = input.value.trim();
+    if (message === '') return;
+
+    const messagesContainer = document.getElementById('chat-messages');
+
+    // 1. Display User Message
+    const userMsg = document.createElement('div');
+    userMsg.className = 'chat-message user-msg';
+    userMsg.textContent = message;
+    messagesContainer.appendChild(userMsg);
+
+    // Auto-scroll to bottom
+    messagesContainer.scrollTop = messagesContainer.scrollHeight;
+
+    // 2. Clear Input
+    input.value = '';
+
+    // 3. Get Bot Response (Simple simulation)
+    let botResponse = 'I apologize, I only have a few pre-programmed answers. Can you ask about "shipping", "returns", or "deals"?';
+    const lowerMsg = message.toLowerCase();
+
+    if (lowerMsg.includes('shipping')) {
+        botResponse = 'Standard shipping is free on all orders above ₹799! Delivery typically takes 3-5 business days.';
+    } else if (lowerMsg.includes('returns')) {
+        botResponse = 'We offer a hassle-free 30-day return policy. Items must be unworn and have original tags. Visit the "Customer Service" section in the footer for details.';
+    } else if (lowerMsg.includes('deals') || lowerMsg.includes('sale')) {
+        botResponse = 'Absolutely! Check out the "Today\'s Best Deals" section just below the main hero banner for limited-time offers and up to 60% off.';
+    } else if (lowerMsg.includes('hello') || lowerMsg.includes('hi')) {
+        botResponse = 'Hello there! Ask me about shipping, returns, or today\'s deals!';
+    } else if (lowerMsg.includes('thank')) {
+        botResponse = 'You\'re welcome! Happy shopping!';
+    }
+    
+    setTimeout(() => {
+        const botMsg = document.createElement('div');
+        botMsg.className = 'chat-message bot-msg';
+        botMsg.textContent = botResponse;
+        messagesContainer.appendChild(botMsg);
+        messagesContainer.scrollTop = messagesContainer.scrollHeight;
+    }, 500); // Simulate network delay
+  }
+
+
+  /* ======= SEO: Add structured data (Organization) ======= */  
+  const orgJson = {    
+    "@context":"https://schema.org",    
+    "@type":"Organization",    
+    "name":"StyleKart",    
+    "url":"https://yourdomain.com",    
+    "logo":"https://yourdomain.com/assets/logo.png", // Replace with actual logo URL    
+    "sameAs":[
+        "https://www.instagram.com/",
+        "https://twitter.com/",
+        "https://www.facebook.com/",
+        "https://www.linkedin.com/"
+    ]  
+  };  
+  const s = document.createElement('script'); s.type='application/ld+json'; s.text = JSON.stringify(orgJson); document.head.appendChild(s);
+
+  /* ======= Google Analytics placeholder (Instructions) ======= */  
+  const GA_MEASUREMENT_ID = 'GA_MEASUREMENT_ID'; 
+  if (GA_MEASUREMENT_ID !== 'GA_MEASUREMENT_ID') {
+    (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtag/js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer',GA_MEASUREMENT_ID);
+
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', GA_MEASUREMENT_ID);
+  } else {
+      console.log('Google Analytics not active: Please replace GA_MEASUREMENT_ID with your actual ID to enable tracking.');
+  }
+</script>
+</body>
+</html>
