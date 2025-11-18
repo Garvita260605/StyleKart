@@ -1,8 +1,7 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-TSKSHD16SZ"></script>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-TSKSHD16SZ"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
@@ -10,8 +9,7 @@
 
   gtag('config', 'G-TSKSHD16SZ');
 </script>
-  <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-90BS63VSWB"></script>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-90BS63VSWB"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
@@ -82,6 +80,25 @@
     .original-price{text-decoration:line-through;color:var(--muted);font-size:14px;margin-left:8px}
     .btn{display:inline-block;padding:8px 14px;border-radius:8px;background:var(--accent);color:#fff;text-decoration:none;border:none;cursor:pointer;transition:background 0.2s}
     .btn:hover{background:#e03560}
+    
+    /* === NEW STYLES FOR PRODUCT NAME CLICK === */
+    .product-name {
+        font-weight: 600;
+        font-size: 16px;
+        color: var(--dark); /* Initial color */
+        text-decoration: none;
+        cursor: pointer;
+        transition: color 0.2s;
+        display: block;
+    }
+    .product-name:hover {
+        color: var(--accent);
+    }
+    /* Color change when actively clicked/focused */
+    a.product-name:active, a.product-name:focus { 
+        color: #007bff !important; /* A noticeable blue color */
+    }
+    /* ========================================= */
 
     /* Footer */
     footer{padding:32px 16px;background:#fff;margin-top:40px;border-top:1px solid #eee}
@@ -480,10 +497,18 @@
   function createProductCard(p) {
     const el = document.createElement('div'); el.className='card';
     const priceText = p.oldPrice ? `<span class="price">${formatter.format(p.price)}</span><span class="original-price">${formatter.format(p.oldPrice)}</span>` : `<span class="price">${formatter.format(p.price)}</span>`;
+    
+    // Function to change the color of the clicked element
+    function changeNameColor(event) {
+        // Use event.currentTarget to ensure we get the <a> tag
+        event.currentTarget.style.color = '#007bff'; // Change color to blue (or any other color)
+        event.preventDefault(); // Stop the link from trying to navigate
+    }
+    
     el.innerHTML = `
       <img src="${p.img}" alt="${p.alt}">
       <div style="padding-top:10px">
-        <div style="font-weight:600;font-size:16px">${p.name}</div>
+        <a href="#" onclick="changeNameColor(event)" class="product-name" style="margin-bottom:4px;">${p.name}</a>
         <div class="muted" style="margin-top:4px">${p.category}</div>
         <div style="margin-top:12px;display:flex;justify-content:space-between;align-items:center">
           <div>${priceText}</div>
@@ -494,6 +519,15 @@
     return el;
   }
   
+  // Expose the changeNameColor function globally so onclick can find it
+  window.changeNameColor = function(event) {
+      event.currentTarget.style.color = '#007bff'; 
+      event.preventDefault(); 
+      // You can also add an alert or log here for confirmation:
+      // console.log('Product name clicked:', event.currentTarget.textContent);
+  }
+
+
   // Populate the main product grid
   const productGrid = document.getElementById('productGrid');
   allProducts.filter(p => !p.isDeal).forEach(p => productGrid.appendChild(createProductCard(p)));
