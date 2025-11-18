@@ -474,22 +474,26 @@
   /* ===== Demo Product Data (UPDATED with more unique images) ===== */
   const allProducts = [
     // Women's Wear
-    {id:1,name:'Floral Midi Dress',price:1499,oldPrice:1999,img:'https://images.unsplash.com/photo-1520975913608-4a9a9c4ea1c6?ixlib=rb-4.0.3&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=800&h=600&fit=crop',alt:'floral midi dress on model',category:'Women',isDeal:false},
-    {id:6,name:'Women\'s Kurta Set',price:1899,oldPrice:2999,img:'https://images.unsplash.com/photo-1627477543209-66c813f28325?ixlib=rb-4.0.3&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=800&h=600&fit=crop',alt:'ethnic kurta set',category:'Women',isDeal:true},
-    {id:9,name:'High-Waist Jeans',price:1599,oldPrice:2199,img:'https://images.unsplash.com/photo-1565108604724-4f9e1e70404c?ixlib=rb-4.0.3&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=800&h=600&fit=crop',alt:'model wearing high-waist jeans',category:'Women',isDeal:false},
-    {id:10,name:'Summer Jumpsuit',price:999,oldPrice:1399,img:'https://images.unsplash.com/photo-1594633312681-425c0499648e?ixlib=rb-4.0.3&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=800&h=600&fit=crop',alt:'yellow summer jumpsuit',category:'Women',isDeal:true},
+    {id:1,name:'Floral Midi Dress',price:1499,oldPrice:1999,img:'https://encrypted-tbn2.gstatic.com/shopping?q=tbn:ANd9GcQeT6AXJ1EE2hwsJdkpQtSh2Q7JSHvr50NbJAjOtNH0ZSrI6-jbBSfh8F9DZl2-tFrnz6OZdMcd-qobdKZKTLz024ER5tIJo-wsD_5trgwG',alt:'floral midi dress on model',category:'Women',isDeal:false},
+    {id:6,name:'Women\'s Kurta Set',price:1899,oldPrice:2999,img:'https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcQfRvKLs2luXo62XA2Fo7OFX2b-USBkWI2F9i7vtVAtQjHPc3doc7rTpITAjsO4gfp22gfvPfSbCpIiYj6wwNxeU3-In8AVkI1FoBDSzYg',alt:'ethnic kurta set',category:'Women',isDeal:true},
+    {id:9,name:'High-Waist Jeans',price:1599,oldPrice:2199,img:'https://m.media-amazon.com/images/I/61ixYIWikbL._SY879_.jpg ',alt:'model wearing high-waist jeans',category:'Women',isDeal:false},
+    {id:10,name:'Summer Jumpsuit',price:999,oldPrice:1399,img:'https://encrypted-tbn0.gstatic.com/shopping?q=tbn:ANd9GcRtEtw3QArqmMt9sBUcgzVY982tD0tp0FcxvpUe_ii0zXIIJ-J7fSpKtYzpbmZf8ef3pE4EAasOH06CUPEGUy8NNPqWpQwpiBSFR2RWjO5cvBeFO5IkSlXi',alt:'yellow summer jumpsuit',category:'Women',isDeal:true},
+    {id:8,name:'Statement Necklace',price:599,oldPrice:799,img:'https://encrypted-tbn0.gstatic.com/shopping?q=tbn:ANd9GcRqOyJHuIhhdTgDDZv0NYFuA9ERgi12qwHExUE57rhqsvgocXxjGHYM3CTsfEyz5c4lCA1SicwhBzmfEUymzLjcWqX7eqHQju7FL7r6AIi6Q8wpY0tDBx1LMx0',alt:'statement gold necklace',category:'Accessories',isDeal:false},
 
     // Men's Wear
-    {id:2,name:'Casual Hoodie',price:899,oldPrice:1299,img:'https://images.unsplash.com/photo-1520975913607-abc?ixlib=rb-4.0.3&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=800&h=600&fit=crop',alt:'casual hoodie full sleeve',category:'Men',isDeal:true},
-    {id:4,name:'Denim Jacket',price:2299,oldPrice:3499,img:'https://images.unsplash.com/photo-1551631525-e65935f8e5cc?ixlib=rb-4.0.3&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=800&h=600&fit=crop',alt:'denim jacket hung',category:'Men',isDeal:true},
-    {id:7,name:'Slim Fit Trousers',price:1299,oldPrice:1899,img:'https://images.unsplash.com/photo-1524675558113-1f201e9d1e2e?ixlib=rb-4.0.3&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=800&h=600&fit=crop',alt:'slim fit trousers',category:'Men',isDeal:false},
-    {id:11,name:'Printed T-Shirt',price:499,oldPrice:699,img:'https://images.unsplash.com/photo-1577909395152-7ed6c9b3a37b?ixlib=rb-4.0.3&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=800&h=600&fit=crop',alt:'men\'s printed t-shirt',category:'Men',isDeal:false},
+    {id:2,name:'Casual Hoodie',price:899,oldPrice:1299,img:'https://encrypted-tbn3.gstatic.com/shopping?q=tbn:ANd9GcSH22gTuh-Laqbb3KvFzahQWT-D2Q6-E0BxuO1byPz9sCsCkVyr_qmkbRm33tpy45DZ81mPpGKRuBN3tE-saWsurEd7LRBWYJKVWyS2Qr7n',alt:'casual hoodie full sleeve',category:'Men',isDeal:true},
+    {id:1,name:'Floral Midi Dress',price:1499,oldPrice:1999,img:'https://encrypted-tbn2.gstatic.com/shopping?q=tbn:ANd9GcQeT6AXJ1EE2hwsJdkpQtSh2Q7JSHvr50NbJAjOtNH0ZSrI6-jbBSfh8F9DZl2-tFrnz6OZdMcd-qobdKZKTLz024ER5tIJo-wsD_5trgwG',alt:'floral midi dress on model',category:'Women',isDeal:false},
+    {id:11,name:'Printed T-Shirt',price:499,oldPrice:699,img:'https://m.media-amazon.com/images/I/71JwxLnOj4L._SX679_.jpg',alt:'men\'s printed t-shirt',category:'Men',isDeal:false},
+    {id:4,name:'Denim Jacket',price:2299,oldPrice:3499,img:'https://assets.myntassets.com/w_412,q_30,dpr_3,fl_progressive,f_webp/assets/images/30659784/2024/12/3/6980bb36-31fb-431d-990a-289d15b5e9701733229891366-Roadster-Men-Jackets-6151733229890711-1.jpg',alt:'denim jacket hung',category:'Men',isDeal:true},
+    {id:7,name:'Slim Fit Trousers',price:1299,oldPrice:1899,img:'https://encrypted-tbn0.gstatic.com/shopping?q=tbn:ANd9GcSofWAJz_mlYat0L91Pny-zCT16iN2jMyCWOkYtG7EWQzf4Mw3qBOsjf60rqMGxHAhfszjb-hvOiMx9xTjANaFrH9jPdXQ2JjKNpZ55lDE-wDEoZtAx-R2E',alt:'slim fit trousers',category:'Men',isDeal:false},
+    
 
     // Accessories & Footwear
-    {id:3,name:'Leather Sandals',price:1199,oldPrice:1599,img:'https://images.unsplash.com/photo-1594956324200-a54b38d3840b?ixlib=rb-4.0.3&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=800&h=600&fit=crop',alt:'leather sandals on floor',category:'Footwear',isDeal:false},
-    {id:5,name:'Crossbody Bag',price:799,oldPrice:999,img:'https://images.unsplash.com/photo-1574765796030-97734a36f01c?ixlib=rb-4.0.3&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=800&h=600&fit=crop',alt:'crossbody bag brown',category:'Accessories',isDeal:false},
-    {id:8,name:'Statement Necklace',price:599,oldPrice:799,img:'https://images.unsplash.com/photo-1621257406981-d2222a07c124?ixlib=rb-4.0.3&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=800&h=600&fit=crop',alt:'statement gold necklace',category:'Accessories',isDeal:false},
-    {id:12,name:'White Sneakers',price:1999,oldPrice:2799,img:'https://images.unsplash.com/photo-1558239062-b43e1208a0d9?ixlib=rb-4.0.3&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=800&h=600&fit=crop',alt:'clean white sneakers',category:'Footwear',isDeal:true},
+    {id:11,name:'Printed T-Shirt',price:499,oldPrice:699,img:'https://m.media-amazon.com/images/I/71JwxLnOj4L._SX679_.jpg',alt:'men\'s printed t-shirt',category:'Men',isDeal:false},
+    {id:3,name:'Leather Sandals',price:1199,oldPrice:1599,img:'https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcQ6c0KrJzJhoT4FnVM3hZKw4sW-p8B4HSXl83XzkZzA2IEjNxZT3YYzsWQWdgJdHgbhcD2onwr6_-ifWjzMSjbkSxdOm0Gkj9mdgsquv6k',alt:'leather sandals on floor',category:'Footwear',isDeal:false},
+    {id:5,name:'Crossbody Bag',price:799,oldPrice:999,img:'https://encrypted-tbn0.gstatic.com/shopping?q=tbn:ANd9GcT-HgeXNEnFN_mbsTPzxS-EeC0whQl4-eFsoQdxWPGKfb1Fz-DTJVoqeWOpNutxq5_J4p-6gCjPAlNz7wTJl1Vom6a-FgOmB8yVAwvlHNu2hhu_C7Og57_N',alt:'crossbody bag brown',category:'Accessories',isDeal:false},
+    {id:8,name:'Statement Necklace',price:599,oldPrice:799,img:'https://encrypted-tbn0.gstatic.com/shopping?q=tbn:ANd9GcRqOyJHuIhhdTgDDZv0NYFuA9ERgi12qwHExUE57rhqsvgocXxjGHYM3CTsfEyz5c4lCA1SicwhBzmfEUymzLjcWqX7eqHQju7FL7r6AIi6Q8wpY0tDBx1LMx0',alt:'statement gold necklace',category:'Accessories',isDeal:false},
+    {id:12,name:'White Sneakers',price:1999,oldPrice:2799,img:'https://assets.myntassets.com/dpr_1.5,q_30,w_400,c_limit,fl_progressive/assets/images/17097806/2022/2/10/aa9f5212-f2eb-4531-b836-1df0c3d3fe2d1644484313283MastHarbourMenWhiteStripedSneakers1.jpg',alt:'clean white sneakers',category:'Footwear',isDeal:true},
   ];
   
   const formatter = new Intl.NumberFormat('en-IN', {style: 'currency', currency: 'INR', minimumFractionDigits: 0});
